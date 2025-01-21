@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="../Images/site-icon.jpg">
+    
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+
+    <!-- Title -->
+    <title>Add a book to the digital library of Gen Z Knowledge</title>
+    <meta name="description" content="Add a digital book to library.">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="../Styles/globals.css">
+    <link rel="stylesheet" href="../Styles/header.css">
+    <link rel="stylesheet" href="../Styles/footer.css">
+    <link rel="stylesheet" href="../Styles/write.css">
+
+    <!-- JavaScripts -->
+    <script defer src="../Scripts/topNavToggle.js"></script>
+    <script defer src="../Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+        <form class="form" action="./addBookDetails" method="post" enctype="multipart/form-data">
+            
+            <!-- Book Title -->
+            <label class="label label_text" for="title">Book title</label>
+            <input class="input input_field_title" type="text" id="title" name="title" value="<%= book.title %>" required>
+
+            <!-- Book Author Name -->
+            <label class="label label_text" for="author">Author Name</label>
+            <input class="input input_field_title" type="text" id="author" name="author" value="<%= book.author %>" required>
+
+            <!-- Categories -->
+            <fieldset class="categories-div fieldset">
+                <legend class="legend">Select Categories</legend>
+                <!-- Categories -->
+                <input value="Academia" type="checkbox" name="genre" id="checkbox-academia">
+                <label for="checkbox-academia">Academia</label>
+
+                <input value="Technology" type="checkbox" name="genre" id="checkbox-technology">
+                <label for="checkbox-technology">Technology</label>
+                
+                <input value="News" type="checkbox" name="genre" id="checkbox-news">
+                <label for="checkbox-news">News</label>
+                
+                <input value="Mathematics" type="checkbox" name="genre" id="checkbox-mathematics">
+                <label for="checkbox-mathematics">Mathematics</label>
+                
+                <input value="Medical" type="checkbox" name="genre" id="checkbox-medical">
+                <label for="checkbox-medical">Medical</label>
+                
+                <input value="Philosophy" type="checkbox" name="genre" id="checkbox-philosophy">
+                <label for="checkbox-philosophy">Philosophy</label>
+
+                <input value="Artificial Intelligence" type="checkbox" name="genre" id="checkbox-ai">
+                <label for="checkbox-ai">Artificial Intelligence</label>
+            </fieldset>
+
+            <!-- Book Cover Image -->
+            <label class="label label_image" for="bookCover">Add book's cover page image here</label>
+            <input class="input input_field_image" type="file" name="bookCover" id="bookCover">
+
+            <!-- Next Step Button -->
+            <button class="btn submit" type="submit">Add Book</button>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+</html>

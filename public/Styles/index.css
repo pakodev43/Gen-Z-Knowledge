@@ -1,0 +1,259 @@
+/*--- Style Sheet for Index Page ---*/
+
+/*
+Author:  "Pakodev"
+Email:  pakodev.info@gmail.com
+X (twitter):  https://x.com/dev_pakodev
+*/
+
+/*-*-*-*-*-*-*---- Repeating Styles ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.section {
+    margin-block: 2rem;
+
+    @media (min-width: 57.625rem) {
+        margin-block-start: 5rem;
+    }
+}
+.book-coverdiv,
+.course-thumbnaildiv {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.3);
+}
+
+.article-thumbnail,
+.book-cover,
+.course-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+
+/*-*-*-*-*---- CATEGORIES BAR SECTION ----*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.categories-listdiv {
+    margin-block: 0 2.5rem;
+    overflow: hidden;
+}
+
+.categories-list {
+    display: flex;
+    justify-content: start;
+    gap: .75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+    @media (min-width: 57.625rem) {
+        justify-content: center;
+    }
+}
+
+.categories-list li {
+    padding: .6rem 0;
+    scroll-snap-align: start;
+}
+
+.categories-list .category {
+    padding: .5rem .75rem;
+    padding: .5rem .95rem;
+    padding: .6rem 1.2rem;
+    padding: .55rem 1.1rem;
+    font-size: .95rem;
+    font-size: .9rem;
+    font-weight: 400;
+    background-color: var(--clr-light);
+    /* border: .5px solid hsla(0, 0%, 0%, 0.85); */
+    border-radius: .7rem;
+    text-wrap-mode: nowrap;
+}
+
+
+/*-*-*-*-*-*-*---- ARTICLES SECTION ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+
+/* Blog Section */
+.blog-sec {
+    margin-block-start: 3rem;
+    display: grid;
+    gap: 1rem;
+    
+    @media (min-width: 57.625rem) {
+        margin-block-start: 5rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 81rem) {
+    .blog-sec {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.blog-blogbox {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1rem;
+    background: hsl(0deg 0% 0% / 50%);
+    background-blend-mode: overlay;
+    position: relative;
+    
+    @media (min-width: 57.625rem) {
+        padding: 1rem;
+    }
+}
+
+.blog-sec a {
+    width: 100%;
+    aspect-ratio: 3/1.5;
+
+    @media (min-width: 57.625rem) {
+        aspect-ratio: 3/1.4;
+    }
+}
+
+.article-thumbnail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 1rem;
+    z-index: -1;
+}
+
+.blog-arrow {
+    text-align: right;
+}
+
+.blog-arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+.blog-arrow svg path {
+    fill: hsl(0, 0%, 100%);
+}
+
+.blog-title {
+    font-size: var(--font-size-blog-title);
+    color: hsl(0, 0%, 100%);
+}
+
+
+
+/*-*-*-*-*-*-*---- BOOKS SECTION ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.books-sec {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-block-start: 3rem;
+
+    @media (min-width: 57.625rem) {
+        margin-block-start: 5rem;
+        gap: 3rem;
+    }
+}
+
+.book-box {
+    width: calc(50vw - 1.5rem);
+    
+    @media (min-width: 57.625rem) {
+        width: 17.5rem;
+        width: 14rem;
+    }
+}
+
+.book-cover {
+    aspect-ratio: 1/1.33;
+    aspect-ratio: 1/1.6;
+}
+
+.book-title {
+    padding: .75rem .5rem 0 .5rem;
+    font-size: 1rem;
+
+    @media (min-width: 57.625rem) {
+        font-size: 1.5rem;
+        font-size: 1.35rem;
+    }
+}
+
+.book-author {
+    padding: .5rem;
+    font-size: .8rem;
+
+    @media (min-width: 57.625rem) {
+        font-size: 1rem;
+    }
+}
+
+
+
+/*-*-*-*-*-*-*---- COURSES SECTION ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.courses-sec {
+    display: grid;
+    gap: 1rem;
+    
+    @media (min-width: 57.625rem) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+@media (min-width: 81rem) {
+    .courses-sec {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.course-thumbnaildiv {
+    width: 100%;
+    aspect-ratio: 3/1.5;
+    border-radius: .7rem;
+
+    @media (min-width: 57.625rem) {
+        aspect-ratio: 3/1.7;
+    }
+}
+
+.course-thumbnail {
+    border-radius: .7rem;
+}
+
+.course-title {
+    margin-block: .2rem .3rem;
+    font-size: 1.3rem;
+    
+    @media (min-width: 57.625rem) {
+        font-size: 1.5rem;
+    }
+}
+
+.course-detailsflex {
+    margin-inline: .35rem;
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1rem;
+    font-size: .95rem;
+}
+
+.course-duration svg {
+    width: 15px;
+    aspect-ratio: 1/.8;
+    margin-inline-end: 5px;
+}
+.course-duration svg path {
+    fill: var(--clr-accent);
+}
+/*---------- THE END ----------*/

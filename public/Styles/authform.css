@@ -1,0 +1,94 @@
+/*--- Style Sheet for Register and Login Pages ---*/
+
+/*
+Author:  "Pakodev"
+Email:  pakodev.info@gmail.com
+X (twitter):  https://x.com/dev_pakodev
+*/
+
+.form-wrapper {
+    margin: 2rem 1rem;
+    
+    @media (min-width: 57.625rem) {
+        margin: 5rem 0;
+        max-width: 25rem;
+        margin-inline: auto;
+    }
+}
+
+.email-password,
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-details {
+    margin-block-start: 1.75rem;
+    
+    @media (min-width: 57.625rem) {
+        margin-block-start: 3rem;
+    }
+}
+
+.login-form label {
+    font-size: .95rem;
+}
+
+.login-form input,
+.login-form textarea {
+    margin-block: .35rem 1.3rem;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--clr-accent);
+    background-color: var(--clr-primary);
+    border-radius: .35rem;
+    border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+}
+
+.label-inputfile {
+    margin-block: .35rem 2rem;
+    background-color: var(--clr-primary);
+    padding: .85rem;
+    text-align: center;
+    border-radius: .25rem;
+    border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+    cursor: pointer;
+}
+
+.input-file {
+    display: none;
+}
+
+.btn-primary {
+    width: 100%;
+    margin-block-start: .8rem;
+    margin-inline: auto;
+    padding: 1rem;
+    font-size: 1rem;
+    font-size: 1.15rem;
+    color: var(--clr-primary);
+    background-color: var(--clr-accent);
+    border-radius: .35rem;
+    border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+}
+
+.btn-secondarydiv {
+    width: 100%;
+    margin-inline: auto;
+    margin-block-start: 3.5rem;
+}
+
+.btn-secondary {
+    display: block;
+    width: 100%;
+    margin-inline: auto;
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--clr-accent);
+    background-color: var(--clr-light);
+    border-radius: .35rem;
+    /* border: 1px solid hsl(from var(--clr-accent) h s l / 27%); */
+    /* border: 1px solid var(--clr-light); */
+}
+/*---------- THE END ----------*/

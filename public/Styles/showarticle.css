@@ -1,0 +1,103 @@
+/*--- Style Sheet for Individual Article Page ---*/
+
+/*
+Author:  "Pakodev"
+Email:  pakodev.info@gmail.com
+X (twitter):  https://x.com/dev_pakodev
+*/
+
+.main {
+    display: block;
+    padding: .5rem;
+    
+    @media (min-width: 57.625rem) {
+        padding: 0;
+    }
+}
+
+.article-thumbnaildiv {
+    margin: 2rem auto;
+    max-width: 80vw;
+    max-height: 20vh;
+    overflow: hidden;
+}
+
+.article-thumbnail {
+    width: 100%;
+}
+
+.title-div {
+    max-width: 100ch;
+    margin-inline: auto;
+    margin-block: 4rem 3rem;
+}
+
+.title {
+    /* font-size: var(--font-size-h2); */
+    font-size: 2.3rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    padding-inline-start: 1rem;
+    border-inline-start: 1rem solid var(--clr-accent);
+    
+    @media (min-width: 57.625rem) {
+        font-size: 3rem;
+    }
+}
+
+.title-infodiv {
+    margin-block-start: 1.75rem;
+    display: flex;
+    /* justify-content: center; */
+    gap: 1.3rem;
+    flex-wrap: wrap;
+    font-size: .95rem;
+    color: hsl(from var(--clr-accent) h s l / 90%);
+}
+
+.title-infodiv * {
+    padding: .5rem 1.15rem;
+    border-radius: .5rem;
+    /* color: var(--clr-accent); */
+    background-color: var(--clr-light);
+}
+
+.genre-div {
+    display: flex;
+    gap: .5rem;
+}
+
+.date {
+    letter-spacing: .1ch;
+}
+
+.btn {
+    margin: 0;
+    padding: 1rem 2.7rem;
+    text-transform: uppercase;
+    border: 2px solid var(--clr-black);
+    font-weight: bolder;
+    display: inline-block;
+}
+
+.form {
+    display: inline-block;
+}
+
+.text-div {
+    max-width: 100ch;
+    margin-inline: auto;
+    margin-top: .7rem;
+    /* padding: 1rem 2rem; */
+    text-align: left;
+}
+
+.text {
+    font-size: var(--fs-p);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    line-height: 1.5;
+    letter-spacing: .1px;
+    color: hsl(from var(--clr-accent) h s l / 90%);
+}
+/*---------- THE END ----------*/

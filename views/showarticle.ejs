@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="../Images/site-icon.jpg">
+    
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+    
+    <!-- Title -->
+    <title><%= article.title %></title>
+    <meta name="description" content="<%= article.title %>">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="../Styles/globals.css">
+    <link rel="stylesheet" href="../Styles/header.css">
+    <link rel="stylesheet" href="../Styles/footer.css">
+    <link rel="stylesheet" href="../Styles/showarticle.css">
+
+    <!-- Quill Test Editor CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+    <!-- JavaScripts -->
+    <script defer src="../Scripts/topNavToggle.js"></script>
+    <script defer src="../Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Authorized Buttons -->
+        <% if(locals.user){ %>
+
+            <!-- Edit Button -->
+            <a class="btn link-edit" href="/blog/edit/<%= article.id %>">Edit</a>
+
+            <!-- Delete Button -->
+            <form class="form" action="/blog/delete/<%= article.id %>?_method=DELETE" method="post">
+                <button class="btn link-delete" type="submit">Delete</button>
+            </form>
+            
+        <% } %>
+            
+        <!-- Title -->
+        <div class="title-div">
+            <h1 class="title"><%= article.title %></h1>
+            <div class="title-infodiv">
+                <p class="date"><%= article.createdAt.toLocaleDateString() %></p>
+                <p class="author">By <%= article.user.name %></p>
+            </div>
+        </div>
+
+        <!-- Article Text -->
+        <div class="text-div">
+            <div class="text" id="textViewer"><%- article.text %></div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+</html>

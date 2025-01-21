@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="/Images/site-icon.jpg">
+    
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+    
+    <!-- Title -->
+    <title>Add a book | Gen Z Knowledge</title>
+    <meta name="description" content="Add a digital book to library.">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="/Styles/globals.css">
+    <link rel="stylesheet" href="/Styles/header.css">
+    <link rel="stylesheet" href="/Styles/footer.css">
+    <link rel="stylesheet" href="/Styles/write.css">
+
+    <!-- JavaScripts -->
+    <script defer src="/Scripts/topNavToggle.js"></script>
+    <script defer src="/Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+        <form class="form" action="../addBook/<%= book.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+
+            <!-- Book input field -->
+            <label class="label label_image" for="book">Add Book here</label>
+            <input class="input input_field_image" type="file" name="book" id="book" required>
+
+            <p id="id" style="display: none;" aria-label="hidden"><%= book.id %></p>
+            
+            <button class="btn submit" type="submit">Publish</button>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+/*--- Style Sheet for Contact Page ---*/
+
+/*
+Author:  "Pakodev"
+Email:  pakodev.info@gmail.com
+X (twitter):  https://x.com/dev_pakodev
+*/
+
+.contact-sec {
+    text-align: center;
+}
+
+.h1 {
+    margin-block-end: 1.5rem;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.contact-sec svg {
+    width: 1.3rem;
+
+    @media (min-width: 57.625rem) {
+        width: 2rem;
+    }
+}
+
+.contact-sec svg path {
+    fill: var(--clr-accent);
+}
+
+.contact-text {
+    letter-spacing: .1px;
+    line-height: 1.5;
+    font-size: 1.1rem;
+    text-align: center;
+
+    @media (min-width: 57.625rem) {
+        font-size: 3rem;
+    }
+}
+/*---------- THE END ----------*/

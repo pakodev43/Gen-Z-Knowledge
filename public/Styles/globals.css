@@ -1,0 +1,268 @@
+/*--- Global Variables and Styles ---*/
+
+/*
+Author:  "Pakodev"
+Email:  pakodev.info@gmail.com
+X (twitter):  https://x.com/dev_pakodev
+*/
+
+/* Used mobile layout first approach */
+/* Break Points for
+    Desktop view:   (min-width: 57.625rem)
+    Large view:   (min-width: 71rem)
+    Extra Large view:   (min-width: 81rem)
+*/
+
+/* 'Poppins' and 'Roboto' fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* 'Syne' font from Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap'); */
+
+
+/*----- Global Colors -----*/
+/*-------------------------*/
+.light,
+:root {
+
+    /* Light (Default) Theme Colors */
+    --clr-accent: hsl(0, 0%, 7%);
+    --clr-primary: hsl(0, 0%, 100%);
+    --clr-secondary: hsl(0, 100%, 50%);
+
+    --clr-white: rgb(255, 255, 255);
+    --clr-black: rgb(0, 0, 0);
+
+    /* --clr-light: hsl(from var(--clr-accent) h s l / 20%); */
+    /* --clr-light: hsl(from var(--clr-accent) h s l / 15%); */
+    --clr-light: hsl(from var(--clr-accent) h s l / 10%);
+}
+
+.dark,
+:root:has(.themetoggle-box:checked) {
+    
+    /*--- Dark Theme Colors ---*/
+    --clr-accent: hsl(0, 0%, 100%);
+    --clr-primary: hsl(0, 0%, 4.8%);
+    --clr-secondary: hsl(0, 100%, 50%);
+
+    --clr-white: rgb(0, 0, 0);
+    --clr-black: rgb(255, 255, 255);
+
+    --clr-light: hsl(from var(--clr-accent) h s l / 5%);
+}
+
+
+/*--- Resets ---*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--f-primary);
+    color: var(--clr-accent);
+    background-color: var(--clr-primary);
+
+    margin-inline: 1rem;
+    
+    @media (min-width: 57.625rem) {
+        margin-inline: 5rem;
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    background: transparent;
+    border: 0;
+}
+
+
+/*--- Repeating Styles ---*/
+
+.hidden {
+    display: none;
+}
+
+.hidden_on_desktop {
+    @media (min-width: 57.625rem) {
+        display: none;
+    }
+}
+
+.hidden_on_mobile {
+    display: none;
+
+}
+
+.top-navbar,
+.main,
+.footer {
+    max-width: 90rem;
+    margin-inline: auto;
+}
+
+
+
+/*------- Typography -------*/
+/*--------------------------*/
+
+:root {
+    /*--- Fonts ---*/
+    /* --f-primary: "Syne", sans-serif; */
+    /* weights 400 - 900 */
+    /* --f-primary: "Poppins", sans-serif; */
+    /* weights 100 - 900 */
+    --f-primary: "Roboto", sans-serif;
+    /* weights 100 - 900 */
+
+    /* --f-secondary: sans-serif; */
+
+    /* USE CLAMP */
+    /* font-size: clamp(2rem, 10vw + 1rem, 7rem); */
+
+    /* Break Points
+        Desktop view:   (min-width: 57.625rem)
+        Large view:   (min-width: 71rem)
+        Extra Large view:   (min-width: 81rem)
+    */
+
+    /*--- Global Font Sizes ---*/
+    --font-size-h1: 2.375rem;
+    --font-size-h1: 2.3rem;
+    --font-size-h1: 2rem;
+    --font-size-h1: clamp(2rem, 10vw + 1rem, 7rem);
+    --font-size-h2: 2.125rem;
+    --font-size-h3: 2rem;
+    --font-size-800: 2rem;
+    --font-size-700: 1.75rem;
+    --font-size-600: 1.5rem;
+    --font-size-500: 1.25rem;
+    --font-size-blog-title: 1.3rem;
+    --font-size-400-normal: 1.25rem;
+    --font-size-300: 0.75rem;
+    --font-size-200: 0.813rem;
+    --line-height-400-normal: 1.2;
+
+    /* Desktop View */
+    @media (min-width: 57.625rem) {
+        /* --font-size-blog-title: 1.2rem;
+        --font-size-blog-title: 1rem; */
+        --font-size-blog-title: 1.3rem;
+        /* --font-size-h1: 5rem;
+        --font-size-h2: 4rem;
+        --font-size-h3: 3rem;
+        --font-size-800: 1rem;
+        --font-size-700: 1rem;
+        --font-size-600: 1rem;
+        --font-size-500: 1rem;
+        --font-size-400-normal: 1rem;
+        --font-size-300: 1rem;
+        --font-size-200: 1rem; */
+    }
+
+    /* Extra Large View */
+    @media (min-width: 71rem) {
+        --font-size-blog-title: 1.7rem;
+        --font-size-blog-title: 1.6rem;
+        /* --font-size-h1: 5rem;
+        --font-size-h2: 4rem;
+        --font-size-h3: 3rem;
+        --font-size-800: 1rem;
+        --font-size-700: 1rem;
+        --font-size-600: 1rem;
+        --font-size-500: 1rem;
+        --font-size-400-normal: 1rem;
+        --font-size-300: 1rem;
+        --font-size-200: 1rem; */
+    }
+}
+
+.h1 {
+    font-size: var(--font-size-h1);
+}
+
+.section_heading {
+    font-size: var(--font-size-h2);
+}
+
+.para {
+    font-size: var(--font-size-400-normal);
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/*------- Search bar -------*/
+.search-form {
+    width: min(90ch, 100%);
+    margin-block: 2.5rem 1.5rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-inline: 1rem 1rem;
+    padding-inline: 1rem .5rem;
+    border-radius: 1rem;
+    background-color: var(--clr-light);
+}
+
+.search-bar {
+    padding: 1rem 1rem;
+    width: 100%;
+    font-size: 1rem;
+    font-family: var(--f-primary);
+    border: 0;
+    outline: none;
+    color: var(--clr-accent);
+    background-color: transparent;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px var(--clr-primary) inset;
+    -webkit-text-fill-color: var(--clr-accent);
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow:0 0 0 50px var(--clr-primary) inset;
+    -webkit-text-fill-color: var(--clr-accent);
+}
+
+.search-btn {
+    padding: .4rem .4rem .23rem .4rem;
+    padding: .5rem .5rem .3rem .5rem;
+    width: fit-content;
+    height: fit-content;
+    border-radius: .5rem;
+    background-color: #fff;
+}
+
+.search-btn svg {
+    width: 19px;
+    aspect-ratio: 1/1;
+}
+
+.search-btn svg path {
+    fill: hsl(0, 0%, 18%);
+}
+
+#textEditor {
+    height: 30rem;
+}
+/*---------- THE END ----------*/

@@ -1,0 +1,236 @@
+/*--- Style Sheet for Common Header ---*/
+
+/*
+Author:  "Pakodev"
+Email:  pakodev.info@gmail.com
+X (twitter):  https://x.com/dev_pakodev
+*/
+
+.top-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+    
+}
+
+.box-shadow {
+    position: fixed;
+    width: calc(100% - 2rem);
+    padding-block: .7rem;
+    padding: .7rem 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    width: 100vw;
+    left: 0;
+    background-color: var(--clr-primary);
+    z-index: 10;
+
+    @media (min-width: 57.625rem) {
+        width: calc(100% - 10rem);
+        padding-block: 1.3rem;
+        width: 100vw;
+    }
+}
+
+.topnav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @media (min-width: 57.625rem) {
+        gap: 2rem;
+    }
+}
+
+.templogo-text {
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    
+    @media (min-width: 57.625rem) {
+        font-size: .95rem;
+    }
+}
+
+.user-svg {
+    width: 18px;
+    aspect-ratio: 1/1;
+}
+
+.user-svg path {
+    fill: var(--clr-accent);
+}
+
+.themetoggle-div {
+    @media (min-width: 57.625rem) {
+        order: 1;
+    }
+}
+
+.themetoggle-box {
+    display: none;
+}
+
+.themetoggle-btn {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.themetoggle-btn svg {
+    width: 15px;
+    height: 15px;
+
+    @media (min-width: 57.625rem) {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.themetoggle-btn:has(+ .themetoggle-box:checked) .moon-svg,
+.sun-svg {
+    display: none;
+}
+
+.themetoggle-btn:has(+ .themetoggle-box:checked) .sun-svg,
+.moon-svg {
+    display: unset;
+}
+
+.themetoggle-btn svg path {
+    fill: var(--clr-accent);
+}
+
+.topnav-togglediv {
+    z-index: 2;
+}
+
+.topnav-togglebtn svg {
+    width: 17px;
+    height: 17px;
+    
+    @media (min-width: 57.625rem) {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.topnav-togglebtn svg path {
+    fill: var(--clr-accent);
+}
+
+.top-navigation {
+    display: none;
+
+    @media (min-width: 57.625rem) {
+        display: unset;
+    }
+}
+
+.top-navigation ul {
+    @media (min-width: 57.625rem) {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.topnav-link {
+    font-weight: 300;
+}
+
+.topnav-link:hover {
+    opacity: 0.7;
+}
+
+.opened {
+    display: unset;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70vw;
+    height: 100%;
+    padding: 5rem 2.5rem;
+    text-align: right;
+    background-color: var(--clr-primary);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 1;
+}
+
+.opened li {
+    margin-block-start: 1.5rem;
+}
+
+
+/*--- HERO SECTION ---*/
+.hero-spacing {
+    padding-block-start: 3rem;
+
+
+    @media (min-width: 57.625rem) {
+        padding-block-start: 5rem;
+    }
+}
+
+.hero-div {
+    padding: 2.7rem 2rem 2rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: hsl(240deg 22.22% 7.06%);
+    background-color: var(--clr-primary);
+    background-color: hsl(0, 0%, 4.5%);
+    background-color: hsl(0, 0%, 0%);
+
+    @media (min-width: 57.625rem) {
+        padding: 4rem 6rem 3rem;
+    }
+}
+
+.main-herotext {
+    margin-block-end: .7rem;
+    font-size: var(--font-size-h1);
+    font-size: 10vw;
+    font-size: clamp(1.5rem, 7vw + 1rem, 5rem);
+    font-size: clamp(1.5rem, 3vw + 1rem, 5rem);
+    font-size: clamp(1.5rem, 2vw + 1rem, 5rem);
+
+    @media (min-width: 57.625rem) {
+        margin-block-end: .7rem;
+    }
+}
+
+.main-herosubtext {
+    margin-block-end: 1.3rem;
+    font-size: clamp(1.1rem, 1vw + 1rem, 2rem);
+    font-size: clamp(1.1rem, .95vw + 1rem, 2rem);
+    
+    @media (min-width: 57.625rem) {
+        margin-block-end: 2rem;
+    }
+}
+
+.main-heroreftext {
+    font-size: clamp(.8rem, 1vw + .5rem, 1.2rem);
+}
+
+.main-herotext,
+.main-herosubtext,
+.main-heroreftext {
+    background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #fff, transparent, transparent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(255, 255, 255, 0.9);
+    animation: glow 2500ms cubic-bezier(0.81, 0.02, 0.24, 0.99) infinite;
+    text-shadow: rgba(255, 255, 255, 0.9) 0px 0px 5px;
+    text-shadow: rgba(255, 255, 255, 0.9) 0px 0px 10px;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.9);
+}
+
+@keyframes glow {
+    40% {
+        text-shadow: 0 0 20px #fff;
+    }
+}
+/*---------- THE END ----------*/

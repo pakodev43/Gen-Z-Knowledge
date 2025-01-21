@@ -1,0 +1,156 @@
+/*--- Style Sheet for Multiple Add and Edit Pages ---*/
+
+/*
+Author:  "Pakodev"
+Email:  pakodev.info@gmail.com
+X (twitter):  https://x.com/dev_pakodev
+*/
+
+.main{
+    display: block;
+}
+
+.heading{
+    margin: 2rem 0 2rem 0;
+    font-size: var(--fs-xl);
+}
+
+.form {
+    margin: 2rem 0;
+    
+    @media (min-width: 57.625rem) {
+        margin-top: 5rem;
+        max-width: 65vw;
+    }
+}
+
+.input,
+.fieldset {
+    width: 100%;
+    margin-block: .35rem 2rem;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--clr-accent);
+    background-color: var(--clr-primary);
+    border-radius: .35rem;
+    border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+}
+
+.label {
+    margin: 0 0 .75rem 1rem;
+}
+
+.label, .input{
+    display: block;
+}
+
+.label,
+.legend {
+    font-size: 1.3rem;
+}
+
+.input_field_text{
+    min-height: 50ch;
+    width: 100%;
+}
+
+.input_field_chapter {
+    width: 30ch;
+    margin-block-end: .7rem;
+}
+
+.input_field_duration {
+    width: 30ch;
+}
+
+.label-inputfile {
+    margin-block: 3.5rem 0;
+}
+
+.input-file {
+    margin-block: .35rem 2rem;
+    background-color: var(--clr-primary);
+    padding: .85rem;
+    font-size: .95rem;
+    text-align: center;
+    border-radius: .25rem;
+    border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+    cursor: pointer;
+}
+
+
+/*--- Categories Div ---.*/
+.categories-div {
+    margin-block: 2rem;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fieldset {
+    border: 1px transparent;
+}
+
+.categories-div input {
+    display: none;
+}
+
+.categories-div label {
+    padding: .5rem .75rem;
+    font-size: .95rem;
+    background-color: hsl(from var(--clr-accent) h s l / 10%);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.categories-div input:checked + label {
+    color: var(--clr-primary);
+    background-color: hsl(from var(--clr-accent) h s l / 95%);
+}
+
+.open-sign {
+    margin-block-end: 3rem;
+    width: fit-content;
+    padding: .7rem .7rem .5rem .7rem;
+    border-radius: .35rem;
+    background-color: var(--clr-accent);
+    cursor: pointer;
+}
+
+.open-sign svg {
+    width: 18px;
+    aspect-ratio: 1/1;
+}
+
+.open-sign svg {fill: var(--clr-primary)}
+
+#chapter2,
+#chapter3,
+#chapter4,
+#chapter5,
+#chapter6,
+#chapter7,
+#chapter8,
+#chapter9,
+#chapter10 {
+    display: none;
+}
+
+#textEditor {
+    margin-block-end: 2.5rem;
+}
+
+/* Submit Button */
+.submit {
+    width: 100%;
+    margin-block-start: 1.3rem;
+    margin-inline: auto;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--clr-primary);
+    background-color: var(--clr-accent);
+    border-radius: .35rem;
+    border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+}
+/*---------- THE END ----------*/

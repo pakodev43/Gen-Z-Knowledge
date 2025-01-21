@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="../Images/site-icon.jpg">
+
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+    
+    <!-- Title -->
+    <title><%= course.title %></title>
+    <meta name="description" content="<%- course.desc %>">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="../Styles/globals.css">
+    <link rel="stylesheet" href="../Styles/header.css">
+    <link rel="stylesheet" href="../Styles/footer.css">
+    <link rel="stylesheet" href="../Styles/showcourse.css">
+
+    <!-- Quill Test Editor CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+    <!-- JavaScripts -->
+    <script defer src="../Scripts/topNavToggle.js"></script>
+    <script defer src="../Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+
+        <div class="upper-gridsec">
+
+            <% if(course.courseThumbnail){ %>
+
+                <!-- Thumbnail -->
+                <div class="article-thumbnaildiv">
+                    <% if (course.courseIntroVideoId) { %>
+                        <iframe class="article-thumbnail" width="560" height="315" src="https://www.youtube.com/embed/<%= course.courseIntroVideoId %>?feature=oembed&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <% } else { %>
+                        <img class="article-thumbnail" src="/Assets/CourseThumbnails/<%= course.courseThumbnail %>" alt="<%= course.title %>">
+                    <% } %>
+                </div>
+            <% } %>
+
+
+            <div class="primary-detailsdiv">
+                <!-- Title -->
+                <h1 class="title"><%= course.title %></h1>
+            
+                <!-- Date -->
+                <div class="date-div">
+                    <p class="tutor">With <%= course.user.name %></p>
+                    <p class="date">Released:<i class="fa-solid fa-calendar-days"></i>&nbsp;<%= course.createdAt.toLocaleDateString() %></p>
+                </div>
+                <p class="tutor">Duration: <%= course.duration %></p>
+
+                <!-- Topics -->
+                <p class="topics-heading">Chapters</p>
+                <ul class="topics-div">
+                    <% for (var i = 0; i < course.chapters.length; i++) { %>
+                        <li><p class="topic"><%= course.chapters[i] %></p></li>
+                    <% } %>
+                </ul>
+
+                <!-- CTA -->
+                 <div class="cta-div">
+                    <a href="<%= course.chatLink %>" class="cta" target="_blank">Chat with Tutor</a>
+                 </div>
+
+            </div>
+                
+        </div>
+
+        <div class="lower-gridsec">
+            <div class="text-div">
+
+                <!-- Article Text -->
+                <p class="text-heading">Course Details:</p>
+                <div class="text" id="textViewer"><%- course.desc %></div>
+            </div>
+
+            <!-- Tutor's details -->
+            <div class="tutor-detailsdiv">
+                <p class="tutor-detailsheading">About Tutor</p>
+                <div class="tutor-profile-div">
+                    <div class="tutor-dpdiv"><img src="/Assets/UserDps/<%= course.user.dp %>" alt="" class="tutor-dp"></div>
+                    <div class="tutor-name-div">
+                        <p class="tutor-name"><%= course.user.name %></p>
+                        <p class="tutor-address"><%= course.user.address %></p>
+                    </div>
+                </div>
+
+                <!-- <ul class="tutor-socialsdiv">
+                    <li><a href="" class="tutor-sociallink"></a></li>
+                </ul> -->
+
+                <p class="tutor-detailstext"><%= course.user.bio %></p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+</html>

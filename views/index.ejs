@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="Images/site-icon.jpg">
+
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+    
+    <!-- Title -->
+    <title>The Gen Z Knowledge</title>
+    <meta name="description" content="A platform of vast knowledge. Offering courses, has a digital library, and a fruitful blog.">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="Styles/globals.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/index.css">    
+    <!-- Splide Style Sheet --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="Styles/landingpage.css">
+
+    <!-- JavaScripts -->
+    <script defer src="Scripts/topNavToggle.js"></script>
+    <script defer src="Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Categories Bar -->
+        <div class="categories-listdiv">
+            <ul class="categories-list">
+                <li><a href="/courses" class="category">Courses</a></li>
+                <li><a href="/blog" class="category">Blog</a></li>
+                <li><a href="/books" class="category">Library</a></li>
+            </ul>
+        </div>
+
+        <!-- Courses Section -->
+        <section class="courses-sec section">
+            <div class="coursesec-left sec-left">
+                <h2 class="h2"><a href="/courses">Explore Courses <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg></a></h2>
+                <p class="sec-subheading text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem officiis nam aliquam architecto labore ipsum necessitatibus blanditiis, quae dolorem ullam placeat voluptate fuga, cumque libero!</p>
+            </div>
+            <div class="splide" id="courseSlider">
+                <div class="splide__slider">
+                      <div class="splide__track">
+                          <ul class="splide__list">
+                            <% course.forEach(course => { %>
+                                <li class="splide__slide">
+                                    <a href="/courses/<%= course.slug %>"><div class="course-box">
+                                        <div class="course-thumbnaildiv"><img src="/Assets/CourseThumbnails/<%= course.courseThumbnail %>" alt="<%= course.title %>" class="course-thumbnail"></div>
+                                        <div class="course-title"><%= course.title %></div>
+                                        <div class="course-detailsflex">
+                                            <p class="course-tutor">By <%= course.user.name %></p>
+                                            <p class="course-duration"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg><%= course.duration %></p>
+                                        </div>
+                                    </div></a>
+                                </li>
+                            <% }) %>
+                          </ul>
+                      </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Section -->
+        <section class="books-sec section">
+            <div class="bookssec-left">
+                <h2 class="h2"><a href="/books">Explore Library <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg></a></h2>
+                <p class="sec-subheading text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem officiis nam aliquam architecto labore ipsum necessitatibus blanditiis, quae dolorem ullam placeat voluptate fuga, cumque libero!</p>
+            </div>
+            <div class="splide" id="bookSlider">
+                <div class="splide__slider">
+                      <div class="splide__track">
+                          <ul class="splide__list">
+                            <% book.forEach(book => { %>
+                                <li class="splide__slide">
+                                    <a href="/books/<%= book.slug %>" target="_blank"><div class="book-box">
+                                        <div class="book-coverdiv"><img src="Assets/BookCovers/<%= book.bookCover %>" alt="<%= book.title %>" class="book-cover"></div>
+                                        <div class="book-title"><%= book.title %></div>
+                                        <div class="book-author">By <%= book.author %></div>
+                                    </div></a>
+                                </li>
+                            <% }) %>
+                          </ul>
+                      </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog-sec section">
+            <div class="splide" id="blogSlider">
+                <div class="splide__slider">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <% article.forEach(article => { %>
+                                <li class="splide__slide">
+                                    <a href="/blog/<%= article.slug %>"><div class="blog-blogbox">
+                                        <img src="/Assets/ArticleThumbnails/<%= article.articleThumbnail %>" alt="<%= article.title %>" class="article-thumbnail">
+                                        <div class="blog-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></div>
+                                        <div class="blog-title"><%= article.title %></div>
+                                    </div></a>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="h2-div h2"><a href="/blog"><div class="h2-flex"><h2>Blog</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg></div></a></div>
+        </section>
+
+        <!-- Register Section -->
+        <% if (!locals.signedIn) { %>
+            <section class="mainpage-ctasec section">
+                <h2 class="maincta-h2 h2">Wanna <span>Offer Courses</span> or <span>Write Articles</span>?</h2>
+                <div class="maincta-linkdiv"><a href="/register" class="maincta-link">Register Now</a></div>
+            </section>
+        <% } %>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+
+<!-- Including Splide JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+
+<script>
+    var splideBook = new Splide('#bookSlider', {
+        type: 'loop',
+        perPage: 1,
+        direction: 'rtl',
+        autoplay: true,
+        arrows: boolean = false,
+        interval: 2500,
+        // autoplay: false,
+    });
+
+    var splideCourse = new Splide('#courseSlider', {
+        type: 'loop',
+        perPage: 1,
+        autoplay: true,
+        arrows: boolean = false,
+        interval: 2500,
+        // autoplay: false,
+    });
+
+    var splideBlog = new Splide('#blogSlider', {
+        type   : 'loop',
+        drag   : 'free',
+        arrows: boolean = false,
+        pagination: boolean = false,
+        focus  : 'center',
+        perPage: 1,
+        mediaQuery: 'min',
+        breakpoints: {
+		    922: {
+			    perPage: 3,
+		    },
+        },
+        autoScroll: {
+            speed: 1,
+        },
+    });
+
+    splideBook.mount();
+    splideCourse.mount();
+    splideBlog.mount( window.splide.Extensions );
+</script>
+</html>

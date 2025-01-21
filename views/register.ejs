@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="Images/site-icon.jpg">
+    
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+    
+    <!-- Title -->
+    <title>Register</title>
+    <meta name="description" content="Offer courses or write articles on GenZKnowledge.com">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="Styles/globals.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/Footer.css">
+    <link rel="stylesheet" href="Styles/index.css">
+    <link rel="stylesheet" href="Styles/authform.css">
+
+    <!-- JavaScripts -->
+    <script defer src="Scripts/topNavToggle.js"></script>
+    <script defer src="Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+
+        <div class="form-wrapper">
+            <div class="login-formdiv">
+                <form class="login-form" action="/register" method="post" enctype="multipart/form-data">
+    
+                    <!-- Email & Password  -->
+                    <div class="email-password">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+        
+                        <label for="password">Set a strong password</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+    
+                    <!-- Contributor's Details -->
+                    <div class="user-details">
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" id="name" required>
+        
+                        <label for="address">Address (City, Country)</label>
+                        <input type="text" name="address" id="address" required>
+                        
+                        <label for="bio">Tell the students about yourself in 3 - 5 lines. (If you want to offer courses)</label>
+                        <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+                        
+                        <label for="dp">Add a profile picture</label>
+                        <label class="label-inputfile" for="dp">Upload</label>
+                        <input class="input-file" type="file" name="dp" id="dp">
+                    </div>
+    
+                    <!-- Submit Button -->
+                    <button class="btn-primary" type="submit">Register</button>
+                    <div class="btn-secondarydiv"><a href="/login" class="btn-secondary">Already have an account - Login</a></div>
+    
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="/Images/site-icon.jpg">
+    
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+    
+    <!-- Title -->
+    <title>Library | Gen Z Knowledge</title>
+    <meta name="description" content="A digital library with the goal of having every good book on the planet">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="/Styles/globals.css">
+    <link rel="stylesheet" href="/Styles/header.css">
+    <link rel="stylesheet" href="/Styles/footer.css">
+    <link rel="stylesheet" href="/Styles/index.css">
+
+    <!-- JavaScripts -->
+    <script defer src="/Scripts/topNavToggle.js"></script>
+    <script defer src="/Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Search Bar -->
+        <form class="search-form" action="/books/search" method="GET">
+            <input class="search-bar" type="text" placeholder="Search for a book..." name="searchQuery">
+            <button class="search-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></button>
+        </form>
+
+
+        <!-- Categories Bar -->
+        <div class="categories-listdiv">
+            <ul class="categories-list">
+                <li><a href="/books" class="category">All</a></li>
+                <li><a href="/books/category/News" class="category">News</a></li>
+                <li><a href="/books/category/Academia" class="category">Academia</a></li>
+                <li><a href="/books/category/Mathematics" class="category">Mathematics</a></li>
+                <li><a href="/books/category/Medical" class="category">Medical</a></li>
+                <li><a href="/books/category/Technology" class="category">Technology</a></li>
+                <li><a href="/books/category/Philosophy" class="category">Philosophy</a></li>
+                <li><a href="/books/category/Artificial Intelligence" class="category">Artificial Intelligence</a></li>
+            </ul>
+        </div>
+
+
+        <% if (locals.book == 0) { %>
+            <h3>No Books Found</h3>
+        <% } %>
+
+        <!-- Books Section -->
+        <div class="books-sec">
+            <% book.forEach(book => { %>
+                <a href="/books/<%= book.slug %>" target="_blank"><div class="book-box">
+                    <div class="book-coverdiv"><img src="/Assets/BookCovers/<%= book.bookCover %>" alt="<%= book.title %>" class="book-cover"></div>
+                    <div class="book-title"><%= book.title %></div>
+                    <div class="book-author">By <%= book.author %></div>
+                </div></a>
+            <% }) %>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+</html>

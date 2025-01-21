@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="Images/site-icon.jpg">
+    
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+    
+    <!-- Title -->
+    <title>Login</title>
+    <meta name="description" content="Login to GenZKnowledge.com">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="Styles/globals.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/index.css">
+    <link rel="stylesheet" href="Styles/authform.css">
+
+    <!-- JavaScripts -->
+    <script defer src="Scripts/topNavToggle.js"></script>
+    <script defer src="Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+
+        <div class="form-wrapper">
+            <div class="login-formdiv">
+                <form class="login-form" action="/login" method="post">
+    
+                    <!-- Email & Password  -->
+                    <div class="email-password">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+        
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+    
+                    <!-- Submit Button -->
+                    <button class="btn-primary" type="submit">Login</button>
+                    <div class="btn-secondarydiv"><a href="/register" class="btn-secondary">Didn't have an account - Register</a></div>
+    
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+</html>

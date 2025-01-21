@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="../Images/site-icon.jpg">
+    
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+    
+    <!-- Title -->
+    <title>Offer a course on Gen Z Knowledge</title>
+    <meta name="description" content="Add a course to teach students, something new">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="../Styles/globals.css">
+    <link rel="stylesheet" href="../Styles/header.css">
+    <link rel="stylesheet" href="../Styles/footer.css">
+    <link rel="stylesheet" href="../Styles/write.css">
+    <!-- Quill Text Editor Style Sheet -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+    <!-- JavaScripts -->
+    <script defer src="../Scripts/topNavToggle.js"></script>
+    <script defer src="../Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+        <form class="form" action="./addCourse" method="post" enctype="multipart/form-data">
+
+            <!-- Course Title -->
+            <label class="label label_text" for="title">Course title</label>
+            <input class="input input_field_title" type="text" id="title" name="title" value="<%= course.title %>" required>
+
+            <!-- Categories -->
+            <fieldset class="categories-div fieldset">
+                <legend class="legend">Select Categories</legend>
+                <!-- Categories -->
+                <input value="Academia" type="checkbox" name="genre" id="checkbox-academia">
+                <label for="checkbox-academia">Academia</label>
+
+                <input value="Technology" type="checkbox" name="genre" id="checkbox-technology">
+                <label for="checkbox-technology">Technology</label>
+                
+                <input value="News" type="checkbox" name="genre" id="checkbox-news">
+                <label for="checkbox-news">News</label>
+                
+                <input value="Mathematics" type="checkbox" name="genre" id="checkbox-mathematics">
+                <label for="checkbox-mathematics">Mathematics</label>
+                
+                <input value="Medical" type="checkbox" name="genre" id="checkbox-medical">
+                <label for="checkbox-medical">Medical</label>
+                
+                <input value="Philosophy" type="checkbox" name="genre" id="checkbox-philosophy">
+                <label for="checkbox-philosophy">Philosophy</label>
+
+                <input value="Artificial Intelligence" type="checkbox" name="genre" id="checkbox-ai">
+                <label for="checkbox-ai">Artificial Intelligence</label>
+            </fieldset>
+
+            <!-- Duration -->
+            <label class="label label_text" for="duration">Course duration</label>
+            <input class="input input_field_duration" type="text" id="duration" name="duration" value="<%= course.duration %>" required>
+            
+            <!-- Chapters -->
+            <label class="label label_text" for="chapter1">Add chapters</label>
+            <input class="input input_field_chapter" type="text" id="chapter1" name="chapters" value="<%= course.chapters[0] %>">
+            <input class="input input_field_chapter" type="text" id="chapter2" value="<%= course.chapters[1] %>">
+            <input class="input input_field_chapter" type="text" id="chapter3" value="<%= course.chapters[2] %>">
+            <input class="input input_field_chapter" type="text" id="chapter4" value="<%= course.chapters[3] %>">
+            <input class="input input_field_chapter" type="text" id="chapter5" value="<%= course.chapters[4] %>">
+            <input class="input input_field_chapter" type="text" id="chapter6" value="<%= course.chapters[5] %>">
+            <input class="input input_field_chapter" type="text" id="chapter7" value="<%= course.chapters[6] %>">
+            <input class="input input_field_chapter" type="text" id="chapter8" value="<%= course.chapters[7] %>">
+            <input class="input input_field_chapter" type="text" id="chapter9" value="<%= course.chapters[8] %>">
+            <input class="input input_field_chapter" type="text" id="chapter10" value="<%= course.chapters[9] %>">
+            <div class="open-sign" id="openChapterInput"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg></div>
+
+            <!-- Chat link -->
+            <label class="label label_text" for="chatLink">Add a link to redirect customers</label>
+            <input class="input input_field_title" type="url" id="chatLink" name="chatLink" value="<%= course.chatLink %>" required>
+
+            <!-- Course Description -->
+            <label class="label label_text" for="desc">Add a course description here</label>
+            <div id="textEditor"><%= course.desc %></div>
+            <input type="hidden" id="quill_html" name="desc" required></input>
+
+            <!-- Intro Video URL -->
+            <label class="label label_text" for="introVideoRawUrl">Add a link to course Intro video from youtube. (not necessary)</label>
+            <input class="input input_field_title" type="url" id="introVideoRawUrl" name="introVideoRawUrl" value="<%= course.introVideoRawUrl %>">
+
+            <!-- Course Thumbnail -->
+            <label class="label label_image" for="courseThumbnail">Add course thumbnail image here</label>
+            <input class="input input_field_image" type="file" name="courseThumbnail" id="courseThumbnail" required>
+
+            <button class="btn submit" type="submit">Add Course</button>
+        </form>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+    <script>
+        // To open next input field for Chapters field on button click
+        var i = 2
+        document.getElementById('openChapterInput').onclick = () => {
+            var chap = document.getElementById(`chapter${i}`)
+            chap.style.display = 'block'
+            chap.name= 'chapters'
+            i++;
+        }
+    </script>
+</body>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  const quill = new Quill('#textEditor', {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }, 'blockquote'],
+    //   ['blockquote', 'code-block'],
+      ['link', 'image', 'video'],
+      ['clean'],
+    ],
+  },
+    theme: 'snow'
+    // or 'Bubble'
+  });
+
+  quill.on('text-change', function(delta, oldDelta, source) {
+    document.getElementById("quill_html").value = quill.root.innerHTML;
+  });
+</script>
+</html>

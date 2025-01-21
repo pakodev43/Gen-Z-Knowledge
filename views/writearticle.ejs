@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Site Icon -->
+  <link rel="icon" type="image/x-icon" href="../Images/site-icon.jpg">
+  
+  <!-- Author -->
+  <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+  
+  <!-- Title -->
+  <title>Write an article</title>
+  <meta name="description" content="Write an article on GenZKnowledge.com">
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="../Styles/globals.css">
+  <link rel="stylesheet" href="../Styles/header.css">
+  <link rel="stylesheet" href="../Styles/footer.css">
+  <link rel="stylesheet" href="../Styles/write.css">
+
+  <!-- Quill Text Editor Style Sheet -->
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+  <!-- JavaScripts -->
+  <script defer src="../Scripts/topNavToggle.js"></script>
+  <script defer src="../Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+  <!-- Main -->
+  <main class="main">
+      <form class="form" id="form" action="./new" method="post" enctype="multipart/form-data">
+
+          <!-- Title -->
+          <label class="label label_text" for="title">Article Title</label>
+          <input class="input input_field_title" type="text" id="title" name="title" value="<%= article.title %>">
+
+          <!-- Categories -->
+          <fieldset class="categories-div fieldset">
+              <legend class="legend">Select Categories</legend>
+              
+              <input value="Academia" type="checkbox" name="genre" id="checkbox-academia">
+              <label for="checkbox-academia">Academia</label>
+
+              <input value="Technology" type="checkbox" name="genre" id="checkbox-technology">
+              <label for="checkbox-technology">Technology</label>
+              
+              <input value="News" type="checkbox" name="genre" id="checkbox-news">
+              <label for="checkbox-news">News</label>
+              
+              <input value="Mathematics" type="checkbox" name="genre" id="checkbox-mathematics">
+              <label for="checkbox-mathematics">Mathematics</label>
+              
+              <input value="Medical" type="checkbox" name="genre" id="checkbox-medical">
+              <label for="checkbox-medical">Medical</label>
+              
+              <input value="Philosophy" type="checkbox" name="genre" id="checkbox-philosophy">
+              <label for="checkbox-philosophy">Philosophy</label>
+
+              <input value="Artificial Intelligence" type="checkbox" name="genre" id="checkbox-ai">
+              <label for="checkbox-ai">Artificial Intelligence</label>
+          </fieldset>
+
+          <!-- Body Text -->
+          <label class="label label_text" for="text">Write your Article Here</label>
+          <div id="textEditor"></div>
+          <input type="hidden" id="quill_html" name="text" required></input>
+
+          <!-- Article Thumbnail Image -->
+          <label class="label label-inputfile" for="image">Add a cover photo</label>
+          <input class="input input-file" type="file" name="articleThumbnail" id="image">
+          
+          <!-- Submit Button -->
+          <button class="btn submit" type="submit">Publish</button>
+      </form>
+  </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  const quill = new Quill('#textEditor', {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }, 'blockquote'],
+    //   ['blockquote', 'code-block'],
+      ['link', 'image', 'video'],
+      ['clean'],
+    ],
+  },
+    theme: 'snow'
+    // or 'Bubble'
+  });
+
+  quill.on('text-change', function(delta, oldDelta, source) {
+    document.getElementById("quill_html").value = quill.root.innerHTML;
+  });
+</script>
+</html>

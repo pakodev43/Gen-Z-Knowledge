@@ -1,0 +1,261 @@
+/*--- Style Sheet for Landing Page ---*/
+
+/*
+Author:  "Pakodev"
+Email:  pakodev.info@gmail.com
+X (twitter):  https://x.com/dev_pakodev
+*/
+
+/* Used mobile layout first approach */
+/* Break Points for
+    Desktop view:   (min-width: 57.625rem)
+    Large view:   (min-width: 71rem)
+    Extra Large view:   (min-width: 81rem)
+*/
+
+
+/*-*-*-*-*-*-*---- CATEGORIES SECTION ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.categories-listdiv {
+    margin-block: 1rem;
+    
+    @media (min-width: 57.625rem) {
+        margin-block: 2rem;
+    }
+}
+
+.categories-list {
+    justify-content: center;
+}
+
+.categories-list .category {
+    @media (min-width: 57.625rem) {
+        padding-inline: 1.75rem;
+        font-size: 1rem;
+    }
+}
+
+
+/*-*-*-*-*-*-*---- BOOKS SECTION ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.books-sec .splide {
+    @media (min-width: 57.625rem) {
+        order: -1;
+    }
+}
+
+.book-box {
+    text-align: left;
+}
+
+
+
+/*-*-*-*-*-*-*---- Repeating Styles ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.section {
+    padding: 1rem 1.5rem;
+    display: grid;
+    gap: 2rem;
+    border-radius: 1rem;
+    /* background-color: var(--clr-light); */
+    overflow: hidden;
+    
+    @media (min-width: 57.625rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.h2 {
+    margin-block: 1.5rem 1rem;
+    font-size: 1.85rem;
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    
+    @media (min-width: 57.625rem) {
+        margin-block: 4.5rem 2rem;
+        margin-inline-start: 0;
+        font-size: 2.5rem;
+    }
+}
+@media (min-width: 81rem) {
+    .h2 {
+        margin-inline-start: 3rem;
+        font-size: 3.5rem;
+    }
+}
+
+.h2 a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    @media (min-width: 57.625rem) {
+        gap: 1.3rem;
+    }
+}
+
+.h2 svg {
+    width: 1.5rem;
+    transition: transform .04s linear;
+    
+    @media (min-width: 57.625rem) {
+        width: 2.5rem;
+    }
+}
+
+.h2:hover svg {
+    transform: translateX(1rem);
+}
+
+.h2 svg path,
+.blogsec-h2 svg path {
+    fill: var(--clr-accent);
+}
+
+.sec-subheading {
+    letter-spacing: .15px;
+    line-height: 1.7;
+    color: hsl(from var(--clr-accent) h s l / 85%);
+    
+    @media (min-width: 57.625rem) {
+        margin-inline: 0 1rem;
+    }
+}
+@media (min-width: 81rem) {
+    .sec-subheading {
+        margin-inline: 3rem 1rem;
+    }
+}
+
+/* --- Splide --- */
+.splide {
+    overflow: hidden;
+}
+
+.splide__slide a {
+    width: fit-content;
+    display: block;
+    margin-block: 1rem 2.5rem;
+    margin-inline: auto;
+}
+
+.splide__pagination__page.is-active {
+    background: hsl(0, 0%, 95%);
+}
+
+
+
+/*-*-*-*-*-*-*---- BLOG SECTION ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.blog-sec {
+    display: unset;
+    background: transparent;
+}
+
+.blog-sec .splide__slide a {
+    width: 95%;
+    margin-block-end: 1.5rem;
+
+    @media (min-width: 57.625rem) {
+        margin-block-end: 2.5rem;
+    }
+}
+
+.h2-flex {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    @media (min-width: 57.625rem) {
+        gap: .85rem;
+    }
+}
+
+.h2-flex h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    
+    @media (min-width: 57.625rem) {
+        font-size: 1.55rem;
+    }
+}
+
+.h2-div.h2 {
+    margin: 0 0 0 2rem;
+}
+
+.h2-div.h2 a {
+    display: unset;
+}
+
+.h2-div.h2 svg {
+    width: 1rem;
+
+    @media (min-width: 57.625rem) {
+        width: 1.5rem;
+    }
+}
+
+
+
+/*-*-*-*-*-*-*---- COURSES SECTION ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.courses-sec {
+    margin-block-start: 1rem;
+    background-color: var(--clr-primary);
+
+    @media (min-width: 57.625rem) {
+        margin-block-start: 2rem;
+    }
+}
+
+.course-box {
+    @media (min-width: 57.625rem) {
+        width: 25rem;
+    }
+}
+@media (min-width: 81rem) {
+    .course-box {
+        width: 30rem;
+    }
+}
+
+
+
+/*-*-*-*-*-*-*---- MAIN CTA SECTION ----*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.mainpage-ctasec {
+    display: flex;
+    flex-direction: column;
+    padding-block: 2rem;
+    text-align: center;
+    background-color: var(--clr-light);
+    
+    @media (min-width: 57.625rem) {
+        padding-block: 5rem;
+        gap: 2.5rem;
+    }
+}
+
+.maincta-h2 {
+    margin: 0;
+}
+
+.maincta-link {
+    padding: .5rem 3.5rem;
+    border-radius: .75rem;
+    font-size: 1rem;
+    color: var(--clr-primary);
+    background-color: var(--clr-accent);
+    
+    @media (min-width: 57.625rem) {
+        padding: .75rem 5rem;
+        font-size: 1.3rem;
+    }
+}
+
+.maincta-link:hover {
+    border: 1px solid var(--clr-accent);
+}
+/*---------- THE END ----------*/

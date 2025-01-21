@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon -->
+    <link rel="icon" type="image/x-icon" href="Images/site-icon.jpg">
+    
+    <!-- Author -->
+    <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+    
+    <!-- Title -->
+    <title><%= user.name %> | Gen Z Knowledge</title>
+    <meta name="description" content="<%= user.bio %> <%= user.name %>'s profile">
+    <meta name="keywords" content="College, Library, Courses, Blog, DigitalLibrary, Books, OnlineCourses, Articles, Technology, News, History, Medical, Philosophy, Startups, Academia, Knowledge, Mathematics, Mobiles, Computers, Gaming, Language, Programming, Computation, Designing, Business, Money, Innovations, Media, Cinema, App Launch, Hardware, ArtificialIntelligence, AI, ML, LLMs, Universities, Colleges, Schools, Past, Present, Future, Wisdom, Values">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="Styles/globals.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/index.css">
+    <link rel="stylesheet" href="Styles/profile.css">
+
+    <!-- JavaScripts -->
+    <script defer src="Scripts/topNavToggle.js"></script>
+    <script defer src="Scripts/themeToggle.js"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('_header') %>
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- DP -->
+        <div class="dp-wrapper">
+            <div class="dp-div">
+                <img src="Assets/UserDps/<%= user.dp %>" alt="<%= user.name %>" class="dp">
+            </div>
+        </div>
+
+        <!-- Name -->
+        <div class="name-div">
+            <p class="name"><%= user.name %></p>
+        </div>
+
+        <!-- Taks -->
+        <div class="task-wrapper">
+            <div class="task-div"><a href="/blog/write" class="task-link">Write Article</a></div>
+            <div class="task-div"><a href="/courses/add" class="task-link">Add Course</a></div>
+            <div class="task-div"><a href="/books/add" class="task-link">Add a Book</a></div>
+            <!-- <div class="task-div"><a href="/" class="task-link">Edit Profile</a></div> -->
+            <div class="task-div"><form action="/logout" method="get"><button class="task-link">Logout</button></form></div>
+        </div>
+
+        <!-- Switch -->
+        <div class="switch-btnwrapper">        
+            <div class="switch-btndiv">
+                <input type="radio" name="switch-btn" id="switchto-articles" checked>
+                <label class="switch-btn" for="switchto-articles">Articles</label>
+            </div>
+            <div class="switch-btndiv">
+                <input type="radio" name="switch-btn" id="switchto-courses">
+                <label class="switch-btn" for="switchto-courses">Courses</label>
+            </div>
+            <div class="switch-btndiv">
+                <input type="radio" name="switch-btn" id="switchto-books">
+                <label class="switch-btn" for="switchto-books">Books</label>
+            </div>
+        </div>
+
+        <!-- Blog Section -->
+        <div class="blog-sec">
+            <% article.forEach(article => { %>
+                <a class="blogbox-wrapper" href="/blog/<%= article.slug %>"><div class="blog-blogbox">
+                    <div class="options">
+                        <form action="/blog/edit/<%= article.id %>" method="get" class="option-form" title="Edit Article"><button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg></button></form>
+                        <form action="/blog/delete/<%= article.id %>?_method=DELETE" method="post" class="option-form" title="Delete Article"><button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg></button></form>
+                    </div>
+                    <img src="/Assets/ArticleThumbnails/<%= article.articleThumbnail %>" alt="<%= article.title %>" class="article-thumbnail">
+                    <div class="blog-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></div>
+                    <div class="blog-title"><%= article.title %></div>
+                </div></a>
+            <% }) %>
+        </div>
+
+        <!-- Books Section -->
+        <div class="books-sec">
+            <% book.forEach(book => { %>
+                <a href="/books/<%= book.slug %>" target="_blank"><div class="book-box">
+                    <div class="options">
+                        <form action="/books/delete/<%= book.id %>?_method=DELETE" method="post" class="option-form" title="Delete this Book"><button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg></button></form>
+                    </div>
+                    <div class="book-coverdiv"><img src="Assets/BookCovers/<%= book.bookCover %>" alt="<%= book.title %>" class="book-cover"></div>
+                    <div class="book-title"><%= book.title %></div>
+                    <div class="book-author">By <%= book.author %></div>
+                </div></a>
+            <% }) %>
+        </div>
+
+        <!-- Courses Section -->
+        <div class="courses-sec">
+            <% course.forEach(course => { %>
+                <a href="/courses/<%= course.slug %>"><div class="course-box">
+                    <div class="options">
+                        <form action="/courses/edit/<%= course.id %>" method="get" class="option-form" title="Edit Course"><button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg></button></form>
+                        <form action="/courses/delete/<%= course.id %>?_method=DELETE" method="post" class="option-form" title="Delete Course"><button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg></button></form>
+                    </div>
+                    <div class="course-thumbnaildiv"><img src="/Assets/CourseThumbnails/<%= course.courseThumbnail %>" alt="<%= course.title %>" class="course-thumbnail"></div>
+                    <div class="course-title"><%= course.title %></div>
+                    <div class="course-detailsflex">
+                        <p class="course-duration"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg><%= course.duration %></p>
+                    </div>
+                </div></a>
+            <% }) %>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('_footer') %>
+
+</body>
+</html>

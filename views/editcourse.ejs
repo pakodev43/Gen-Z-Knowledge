@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Coded with passion by "Pakodev"
+    Email at:   pakodev.info@gmail.com
+    Or message me on X (twitter):   https://x.com/dev_pakodev
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Site Icon -->
+  <link rel="icon" type="image/x-icon" href="/Images/site-icon.jpg">
+
+  <!-- Author -->
+  <meta name="author" content="Pakodev | pakodev.info@gmail.com">
+
+  <!-- Title -->
+  <title>Editing Course: <%= course.title %></title>
+  <meta name="description" content="Editing a course">
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="/Styles/globals.css">
+  <link rel="stylesheet" href="/Styles/header.css">
+  <link rel="stylesheet" href="/Styles/footer.css">
+  <link rel="stylesheet" href="/Styles/write.css">
+
+  <!-- Quill Text Editor Style Sheet -->
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+  <!-- JavaScripts -->
+  <script defer src="/Scripts/topNavToggle.js"></script>
+  <script defer src="/Scripts/themeToggle.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <%- include('_header') %>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Edit Form -->
+    <form class="form" action="/courses/edit/<%= course.id %>?_method=PUT" method="post">
+
+      <!-- Course Title -->
+      <label class="label label_text" for="title">Course title</label>
+      <input class="input input_field_title" type="text" id="title" name="title" value="<%= course.title %>">
+
+      <!-- Duration -->
+      <label class="label label_text" for="duration">Course duration</label>
+      <input class="input input_field_duration" type="text" id="duration" name="duration"
+        value="<%= course.duration %>">
+
+      <!-- Chat link -->
+      <label class="label label_text" for="chatLink">Link to redirect customers</label>
+      <input class="input input_field_title" type="url" id="chatLink" name="chatLink" value="<%= course.chatLink %>">
+
+      <!-- Course Description -->
+      <label class="label label_text" for="desc">Course description</label>
+      <div id="textEditor"><%- course.desc %></div>
+      <input type="hidden" id="quill_html" name="desc"></input>
+
+      <!-- Submit Button -->
+      <button class="btn submit" type="submit">Update</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <%- include('_footer') %>
+
+</body>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  const quill = new Quill('#textEditor', {
+    modules: {
+      toolbar: [
+        [{ header: [1, 2, false] }],
+        ['bold', 'italic', 'underline'],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }, 'blockquote'],
+        //   ['blockquote', 'code-block'],
+        ['link', 'image', 'video'],
+        ['clean'],
+      ],
+    },
+    theme: 'snow'
+    // or 'Bubble'
+  });
+
+  quill.on('text-change', function (delta, oldDelta, source) {
+    document.getElementById("quill_html").value = quill.root.innerHTML;
+  });
+</script>
+
+</html>

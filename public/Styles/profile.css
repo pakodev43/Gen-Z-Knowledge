@@ -1,0 +1,156 @@
+/*--- Style Sheet for Profile Page ---*/
+
+/*
+Author:  "Pakodev"
+Email:  pakodev.info@gmail.com
+X (twitter):  https://x.com/dev_pakodev
+*/
+
+.name {
+    font-size: 1.5rem;
+    @media (min-width: 57.625rem) {
+        font-size: 2rem;
+    }
+}
+
+.dp-wrapper,
+.name-div {
+    margin-block: 2rem 1.7rem;
+    text-align: center;
+}
+
+.dp-div {
+    width: 10rem;
+    margin-inline: auto;
+    aspect-ratio: 1/1;
+    
+    @media (min-width: 57.625rem) {
+        width: 15rem;
+    }
+}
+
+.dp {
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    aspect-ratio: 1/1;
+    border-radius: .5rem;
+}
+
+
+/*--- Task Div ---*/
+.task-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5rem;
+    
+    @media (min-width: 57.625rem) {
+        gap: 1.5rem;
+    }
+}
+
+.task-link {
+    padding: .55rem .85rem;
+    background-color: var(--clr-light);
+    border-radius: .5rem;
+    font-size: .85rem;
+    color: hsl(from var(--clr-accent) h s l / 80%);
+    display: block;
+    
+    @media (min-width: 57.625rem) {
+        padding: .7rem 1.15rem;
+        font-size: 1rem;
+    }
+}
+
+.task-link:hover {
+    color: hsl(from var(--clr-accent) h s l / 100%);
+}
+
+
+/*--- Switch Buttons ---*/
+.switch-btnwrapper {
+    margin-block: 4rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.switch-btnwrapper input[type=radio] {
+    display: none;
+}
+
+.switch-btn {
+    padding-bottom: .2rem;
+    font-size: 1.15rem;
+    color: hsl(from var(--clr-accent) h s l / 60%);
+    border-bottom: 2px solid hsl(from var(--clr-accent) h s l / 30%);
+    cursor: pointer;
+}
+
+.switch-btnwrapper input[type=radio]:checked + .switch-btn,
+.switch-btn:hover {
+    color: var(--clr-accent);
+    border-bottom: 2px solid var(--clr-accent);
+}
+
+/* Switch Implement */
+.blog-sec,
+.courses-sec,
+.books-sec {
+    display: none;
+}
+
+.switch-btnwrapper:has(#switchto-books:checked) ~ .books-sec {
+    display: flex;
+}
+
+.switch-btnwrapper:has(#switchto-articles:checked) ~ .blog-sec,
+.switch-btnwrapper:has(#switchto-courses:checked) ~ .courses-sec {
+    display: grid;
+}
+
+
+/*--- User Actions on Items ---*/
+.blog-blogbox,
+.book-box,
+.course-box {
+    position: relative;
+}
+
+.options {
+    position: absolute;
+    margin: .55rem;
+    display: flex;
+    gap: .7rem;
+}
+
+.course-box .options {
+    margin: 1.2rem;
+}
+
+.book-box .options {
+    bottom: 0;
+    right: 0;
+}
+
+.blog-blogbox .options {
+    margin: 0;
+}
+
+.options form button {
+    padding: .55rem .55rem .35rem .55rem;
+    border-radius: .3rem;
+    cursor: pointer;
+    background-color: white;
+}
+
+.options form svg {
+    height: 1rem;
+}
+
+.options form svg path {
+    fill: black;
+}
+/*---------- THE END ----------*/

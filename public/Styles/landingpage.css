@@ -38,6 +38,14 @@ X (twitter):  https://x.com/dev_pakodev
 
 /*-*-*-*-*-*-*---- BOOKS SECTION ----*-*-*-*-*-*-*/
 /*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+.books-sec {
+    margin-block: 0;
+
+    @media (min-width: 57.625rem) {
+        margin-block: 5rem 2rem;
+    }
+}
+
 .books-sec .splide {
     @media (min-width: 57.625rem) {
         order: -1;

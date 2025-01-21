@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
+const path = require('path');
 const methodOverride = require('method-override')
 const cookieParser = require('cookie-parser')
 const app = express()
@@ -8,6 +9,8 @@ const app = express()
 // MongoDB Database
 mongoose.connect(process.env.DB_URI)
 
+
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))

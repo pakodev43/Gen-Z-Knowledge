@@ -29,7 +29,7 @@ app.use('/courses', coursesRoute)
 app.use('/', authRoute)
 
 // Run the server
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
     if (process.env.PHASE == 'development') {
         console.log(`Server is running on http://localhost:${process.env.PORT} in development`)
     }

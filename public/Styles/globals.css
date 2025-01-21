@@ -35,6 +35,7 @@ X (twitter):  https://x.com/dev_pakodev
     /* --clr-light: hsl(from var(--clr-accent) h s l / 20%); */
     /* --clr-light: hsl(from var(--clr-accent) h s l / 15%); */
     --clr-light: hsl(from var(--clr-accent) h s l / 10%);
+    --clr-light: hsla(0, 0%, 7%, 0.1);
 }
 
 .dark,
@@ -49,6 +50,7 @@ X (twitter):  https://x.com/dev_pakodev
     --clr-black: rgb(255, 255, 255);
 
     --clr-light: hsl(from var(--clr-accent) h s l / 5%);
+    --clr-light: hsla(0, 0%, 7%, 0.05);
 }
 
 

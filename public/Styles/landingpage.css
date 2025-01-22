@@ -124,6 +124,7 @@ X (twitter):  https://x.com/dev_pakodev
     letter-spacing: .15px;
     line-height: 1.7;
     color: hsl(from var(--clr-accent) h s l / 85%);
+    color: var(--clr-accent-85);
     
     @media (min-width: 57.625rem) {
         margin-inline: 0 1rem;

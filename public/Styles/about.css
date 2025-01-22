@@ -31,6 +31,7 @@ X (twitter):  https://x.com/dev_pakodev
     line-height: 1.5;
     font-size: 1.1rem;
     color: hsl(from var(--clr-accent) h s l / 90%);
+    color: var(--clr-accent-90);
 
     @media (min-width: 57.625rem) {
         font-size: 1.3rem;

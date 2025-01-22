@@ -91,6 +91,7 @@ X (twitter):  https://x.com/dev_pakodev
     line-height: 1.5;
     letter-spacing: .1px;
     color: hsl(from var(--clr-accent) h s l / 90%);
+    color: var(--clr-accent-90);
 
     @media (min-width: 57.625rem) {
         font-size: 1.3rem;
@@ -123,6 +124,7 @@ X (twitter):  https://x.com/dev_pakodev
 .topic {
     padding: .5rem .95rem;
     border: .5px solid hsl(from var(--clr-accent) h s l /85%);
+    border: .5px solid var(--clr-accent-85);
     border-radius: 1.5rem;
     font-size: .95rem;
 }
@@ -160,6 +162,7 @@ X (twitter):  https://x.com/dev_pakodev
 .tutor-detailsdiv {
     padding: 1.7rem;
     border: 1px solid hsl(from var(--clr-accent) h s l /85%);
+    border: 1px solid var(--clr-accent-85);
     border-radius: 2rem;
     
     @media (min-width: 57.625rem) {

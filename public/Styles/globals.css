@@ -39,6 +39,8 @@ X (twitter):  https://x.com/dev_pakodev
 
     --clr-light-27: hsla(0, 0%, 7%, 0.27);
     --clr-light-10: hsla(0, 0%, 7%, 0.1);
+    --clr-light-85: hsla(0, 0%, 7%, 0.85);
+    --clr-light-90: hsla(0, 0%, 7%, 0.9);
     --clr-light-95: hsla(0, 0%, 7%, 0.95);
 }
 
@@ -58,6 +60,8 @@ X (twitter):  https://x.com/dev_pakodev
 
     --clr-light-27: hsla(0, 0%, 100%, 0.27);
     --clr-light-10: hsla(0, 0%, 100%, 0.1);
+    --clr-light-85: hsla(0, 0%, 100%, 0.85);
+    --clr-light-90: hsla(0, 0%, 100%, 0.9);
     --clr-light-95: hsla(0, 0%, 100%, 0.95);
 }
 

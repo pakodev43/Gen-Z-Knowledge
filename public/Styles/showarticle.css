@@ -53,6 +53,7 @@ X (twitter):  https://x.com/dev_pakodev
     flex-wrap: wrap;
     font-size: .95rem;
     color: hsl(from var(--clr-accent) h s l / 90%);
+    color: var(--clr-accent-90);
 }
 
 .title-infodiv * {
@@ -99,5 +100,6 @@ X (twitter):  https://x.com/dev_pakodev
     line-height: 1.5;
     letter-spacing: .1px;
     color: hsl(from var(--clr-accent) h s l / 90%);
+    color: var(--clr-accent-90);
 }
 /*---------- THE END ----------*/

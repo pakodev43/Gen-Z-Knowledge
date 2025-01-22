@@ -210,11 +210,11 @@ X (twitter):  https://x.com/dev_pakodev
 /*-*-*-*-*-*-*---- COURSES SECTION ----*-*-*-*-*-*-*/
 /*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
 .courses-sec {
-    margin-block-start: 1rem;
+    margin-block: 1rem 0;
     background-color: var(--clr-primary);
 
     @media (min-width: 57.625rem) {
-        margin-block-start: 2rem;
+        margin-block: 2rem;
     }
 }
 

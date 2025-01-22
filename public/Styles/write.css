@@ -34,6 +34,7 @@ X (twitter):  https://x.com/dev_pakodev
     background-color: var(--clr-primary);
     border-radius: .35rem;
     border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+    border: 1px solid var(--clr-light-27);
 }
 
 .label {
@@ -75,6 +76,7 @@ X (twitter):  https://x.com/dev_pakodev
     text-align: center;
     border-radius: .25rem;
     border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+    border: 1px solid var(--clr-light-27);
     cursor: pointer;
 }
 
@@ -100,6 +102,7 @@ X (twitter):  https://x.com/dev_pakodev
     padding: .5rem .75rem;
     font-size: .95rem;
     background-color: hsl(from var(--clr-accent) h s l / 10%);
+    background-color: var(--clr-light-10);
     border-radius: .5rem;
     cursor: pointer;
 }
@@ -107,6 +110,7 @@ X (twitter):  https://x.com/dev_pakodev
 .categories-div input:checked + label {
     color: var(--clr-primary);
     background-color: hsl(from var(--clr-accent) h s l / 95%);
+    background-color: var(--clr-light-95);
 }
 
 .open-sign {
@@ -152,5 +156,6 @@ X (twitter):  https://x.com/dev_pakodev
     background-color: var(--clr-accent);
     border-radius: .35rem;
     border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+    border: 1px solid var(--clr-light-27);
 }
 /*---------- THE END ----------*/

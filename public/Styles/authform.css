@@ -43,6 +43,7 @@ X (twitter):  https://x.com/dev_pakodev
     background-color: var(--clr-primary);
     border-radius: .35rem;
     border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+    border: 1px solid var(--clr-light-27);
 }
 
 .label-inputfile {
@@ -52,6 +53,7 @@ X (twitter):  https://x.com/dev_pakodev
     text-align: center;
     border-radius: .25rem;
     border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+    border: 1px solid var(--clr-light-27);
     cursor: pointer;
 }
 
@@ -70,6 +72,7 @@ X (twitter):  https://x.com/dev_pakodev
     background-color: var(--clr-accent);
     border-radius: .35rem;
     border: 1px solid hsl(from var(--clr-accent) h s l / 27%);
+    border: 1px solid var(--clr-light-27);
 }
 
 .btn-secondarydiv {

@@ -65,7 +65,7 @@ X (twitter):  https://x.com/dev_pakodev
 }
 
 .task-link:hover {
-    color: hsl(from var(--clr-accent) h s l / 100%);
+    color: var(--clr-accent);
 }
 
 

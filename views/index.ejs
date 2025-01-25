@@ -55,7 +55,7 @@
         <!-- Courses Section -->
         <section class="courses-sec section">
             <div class="coursesec-left sec-left">
-                <h2 class="h2"><a href="/courses">Explore Courses <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg></a></h2>
+                <h2 class="h2"><a href="/courses">Explore Courses <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg></a></h2>
                 <p class="sec-subheading text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem officiis nam aliquam architecto labore ipsum necessitatibus blanditiis, quae dolorem ullam placeat voluptate fuga, cumque libero!</p>
             </div>
             <div class="splide" id="courseSlider">
@@ -65,7 +65,7 @@
                             <% course.forEach(course => { %>
                                 <li class="splide__slide">
                                     <a href="/courses/<%= course.slug %>"><div class="course-box">
-                                        <div class="course-thumbnaildiv"><img src="/Assets/CourseThumbnails/<%= course.courseThumbnail %>" alt="<%= course.title %>" class="course-thumbnail"></div>
+                                        <div class="course-thumbnaildiv"><img src="/courses/course-thumbnail/<%= course.courseThumbnail %>" alt="<%= course.title %>" class="course-thumbnail"></div>
                                         <div class="course-title"><%= course.title %></div>
                                         <div class="course-detailsflex">
                                             <p class="course-tutor">By <%= course.user.name %></p>
@@ -93,7 +93,7 @@
                             <% book.forEach(book => { %>
                                 <li class="splide__slide">
                                     <a href="/books/<%= book.slug %>" target="_blank"><div class="book-box">
-                                        <div class="book-coverdiv"><img src="Assets/BookCovers/<%= book.bookCover %>" alt="<%= book.title %>" class="book-cover"></div>
+                                        <div class="book-coverdiv"><img src="/books/cover/<%= book.bookCover %>" alt="<%= book.title %>" class="book-cover"></div>
                                         <div class="book-title"><%= book.title %></div>
                                         <div class="book-author">By <%= book.author %></div>
                                     </div></a>
@@ -114,7 +114,7 @@
                             <% article.forEach(article => { %>
                                 <li class="splide__slide">
                                     <a href="/blog/<%= article.slug %>"><div class="blog-blogbox">
-                                        <img src="/Assets/ArticleThumbnails/<%= article.articleThumbnail %>" alt="<%= article.title %>" class="article-thumbnail">
+                                        <img src="/blog/article-thumbnail/<%= article.articleThumbnail %>" alt="<%= article.title %>" class="article-thumbnail">
                                         <div class="blog-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></div>
                                         <div class="blog-title"><%= article.title %></div>
                                     </div></a>

@@ -1,8 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const { uploadArticleThumbnail } = require('../middleware/filesUploadMiddleware')
 const { authenticate } = require('../middleware/authMiddleware')
+const { uploadArticleThumbnail } = require('../middleware/filesUploadMiddleware')
+const { articleThumbnailBucket } = require('../middleware/bucketsMiddleware')
+
+router.use(articleThumbnailBucket)
 
 const Article = require('../models/Article')
 const Book = require('../models/Book')
@@ -58,14 +61,21 @@ router.get('/edit/:id', authenticate, async (req, res) => {
 
 
 // Add new article route, POST request
-router.post('/new', authenticate, uploadArticleThumbnail,  async (req, res) => {
+router.post('/new', authenticate, uploadArticleThumbnail, async (req, res) => {
+
     var user = await User.findById(req.id)
+
+    var file = req.file
+    var filename = req.body.title + "-" + Date.now()
+
+    const uploadStream = req.articleThumbnailBucket.openUploadStream(filename);
+    uploadStream.end(file.buffer);
 
     let article = new Article({
         title: req.body.title,
         genre: req.body.genre,
         text: req.body.text,
-        articleThumbnail: req.file.filename,
+        articleThumbnail: filename,
         user: req.id
     
     })
@@ -81,6 +91,11 @@ router.post('/new', authenticate, uploadArticleThumbnail,  async (req, res) => {
         console.log(e)
     }
 })
+
+// Serve Article Thumbnail
+router.get('/article-thumbnail/:filename', (req, res) => {
+    req.articleThumbnailBucket.openDownloadStreamByName(req.params.filename).pipe(res);
+});
 
 
 // Edit article route, PUT request

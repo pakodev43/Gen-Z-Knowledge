@@ -71,7 +71,7 @@
         <div class="books-sec">
             <% book.forEach(book => { %>
                 <a href="/books/<%= book.slug %>" target="_blank"><div class="book-box">
-                    <div class="book-coverdiv"><img src="/Assets/BookCovers/<%= book.bookCover %>" alt="<%= book.title %>" class="book-cover"></div>
+                    <div class="book-coverdiv"><img src="/books/cover/<%= book.bookCover %>" alt="<%= book.title %>" class="book-cover"></div>
                     <div class="book-title"><%= book.title %></div>
                     <div class="book-author">By <%= book.author %></div>
                 </div></a>

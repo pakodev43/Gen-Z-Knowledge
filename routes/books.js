@@ -1,8 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const { uploadBookCover, uploadBook } = require('../middleware/filesUploadMiddleware')
 const { isSignedIn } = require('../middleware/authMiddleware')
+const { uploadBookCover, uploadBook } = require('../middleware/filesUploadMiddleware')
+const { bookCoverBucket, bookBucket } = require('../middleware/bucketsMiddleware')
+
+router.use(bookCoverBucket)
+router.use(bookBucket)
 
 const Book = require('../models/Book')
 const Article = require('../models/Article')
@@ -53,19 +57,17 @@ router.get('/addbook/:slug', async (req, res) => {
 })
 
 
-// View book, GET request
-router.get('/:slug', async (req, res) => {
-    let book = await Book.findOne({ slug: req.params.slug })
-    
-    res.sendFile(`${book.book}`, { root: './public/Assets/Books/' })
-})
+// Serve Book, GET request
+router.get('/:filename', (req, res) => {
+    req.bookBucket.openDownloadStreamByName(req.params.filename).pipe(res);
+});
 
 
 // Download book, GET request
-router.get('/download/:slug', async (req, res) => {
-    let book = await Book.findOne({ slug: req.params.slug })
-    res.download(book.path, book.originalName)
-})
+// router.get('/download/:slug', async (req, res) => {
+//     let book = await Book.findOne({ slug: req.params.slug })
+//     res.download(book.path, book.originalName)
+// })
 
 
 // Use field names like this
@@ -84,12 +86,19 @@ router.post('/addBookDetails', isSignedIn, uploadBookCover, async (req, res) => 
     if (req.id) {
         userId = req.id
     }
+
+    var file = req.file
+    var filename = req.body.title + "-cover-" + Date.now()
+
+    const uploadStream = req.bookCoverBucket.openUploadStream(filename);
+    uploadStream.end(file.buffer);
+
     let book = new Book({
         title: req.body.title,
         author: req.body.author,
         genre: req.body.genre,
         user: userId,
-        bookCover: req.file.filename
+        bookCover: filename
 
     })
 
@@ -107,9 +116,13 @@ router.post('/addBookDetails', isSignedIn, uploadBookCover, async (req, res) => 
 router.put('/addBook/:id', uploadBook, async (req, res) => {
     let book = await Book.findById(req.params.id)
 
-    book.book = req.file.filename
-    book.path = req.file.path
-    book.originalName = req.file.originalname
+    var file = req.file
+    var filename = book.slug
+
+    const uploadStream = req.bookBucket.openUploadStream(filename);
+    uploadStream.end(file.buffer);
+
+    book.book = filename
 
     try {
         book = await book.save()
@@ -119,6 +132,11 @@ router.put('/addBook/:id', uploadBook, async (req, res) => {
         console.log(e)
     }
 })
+
+// Serve Book Cover
+router.get('/cover/:filename', (req, res) => {
+    req.bookCoverBucket.openDownloadStreamByName(req.params.filename).pipe(res);
+});
 
 
 // router.post('/addBook', uploadBookCover, uploadBook, async (req, res) => {

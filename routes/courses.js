@@ -3,6 +3,9 @@ const router = express.Router()
 
 const { authenticate } = require('../middleware/authMiddleware') 
 const { uploadCourseThumbnail } = require('../middleware/filesUploadMiddleware')
+const { courseThumbnailBucket } = require('../middleware/bucketsMiddleware')
+
+router.use(courseThumbnailBucket)
 
 const User = require('../models/User')
 const Course = require('../models/Course')
@@ -70,6 +73,12 @@ router.post('/addCourse', authenticate, uploadCourseThumbnail,  async (req, res)
         var courseIntroVideoId = null;
     }
 
+    var file = req.file
+    var filename = req.body.title + "-" + Date.now()
+
+    const uploadStream = req.courseThumbnailBucket.openUploadStream(filename);
+    uploadStream.end(file.buffer);
+
 
     let course = new Course({
         title: req.body.title,
@@ -79,7 +88,7 @@ router.post('/addCourse', authenticate, uploadCourseThumbnail,  async (req, res)
         chatLink: req.body.chatLink,
         courseIntroVideoId: courseIntroVideoId,
         desc: req.body.desc,
-        courseThumbnail: req.file.filename,
+        courseThumbnail: filename,
         user: req.id
     
     })
@@ -95,6 +104,11 @@ router.post('/addCourse', authenticate, uploadCourseThumbnail,  async (req, res)
         console.log(e)
     }
 })
+
+// Serve Course Thumbnail
+router.get('/course-thumbnail/:filename', (req, res) => {
+    req.courseThumbnailBucket.openDownloadStreamByName(req.params.filename).pipe(res);
+});
 
 
 // Edit course route, PUT request

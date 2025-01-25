@@ -5,6 +5,9 @@ const jwt = require('jsonwebtoken')
 const router = express.Router()
 
 const { uploadUserDp } = require('../middleware/filesUploadMiddleware')
+const { userDpBucket } = require('../middleware/bucketsMiddleware')
+
+router.use(userDpBucket)
 
 const User = require('../models/User')
 
@@ -19,6 +22,16 @@ router.post('/register', uploadUserDp, async (req, res) => {
     return res.redirect('/register');
   }
 
+  if (req.file) {
+    var file = req.file
+    var filename = req.body.name + "-" + Date.now()
+  
+    const uploadStream = req.userDpBucket.openUploadStream(filename)
+    uploadStream.end(file.buffer)
+  } else {
+    var filename = null
+  }
+
   try {
       let hashedPassword = await bcrypt.hash(req.body.password, 10)
 
@@ -28,7 +41,7 @@ router.post('/register', uploadUserDp, async (req, res) => {
         name: req.body.name,
         address: req.body.address,
         bio: req.body.bio,
-        dp: req.file.filename
+        dp: filename
       });
 
       user = await user.save();
@@ -74,6 +87,11 @@ router.post('/login', async (req, res) => {
     res.redirect('/login')
   }
 })
+
+// Serve User Dp
+router.get('/user-dp/:filename', (req, res) => {
+  req.userDpBucket.openDownloadStreamByName(req.params.filename).pipe(res);
+});
 
 
 // Logout route

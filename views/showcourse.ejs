@@ -53,7 +53,7 @@
                     <% if (course.courseIntroVideoId) { %>
                         <iframe class="article-thumbnail" width="560" height="315" src="https://www.youtube.com/embed/<%= course.courseIntroVideoId %>?feature=oembed&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <% } else { %>
-                        <img class="article-thumbnail" src="/Assets/CourseThumbnails/<%= course.courseThumbnail %>" alt="<%= course.title %>">
+                        <img class="article-thumbnail" src="/courses/course-thumbnail/<%= course.courseThumbnail %>" alt="<%= course.title %>">
                     <% } %>
                 </div>
             <% } %>
@@ -99,7 +99,9 @@
             <div class="tutor-detailsdiv">
                 <p class="tutor-detailsheading">About Tutor</p>
                 <div class="tutor-profile-div">
-                    <div class="tutor-dpdiv"><img src="/Assets/UserDps/<%= course.user.dp %>" alt="" class="tutor-dp"></div>
+                    <% if (locals.course.user.dp) { %>
+                        <div class="tutor-dpdiv"><img src="/user-dp/<%= course.user.dp %>" alt="" class="tutor-dp"></div>
+                    <% } %>
                     <div class="tutor-name-div">
                         <p class="tutor-name"><%= course.user.name %></p>
                         <p class="tutor-address"><%= course.user.address %></p>

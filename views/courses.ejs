@@ -72,7 +72,7 @@
         <div class="courses-sec">
             <% course.forEach(course => { %>
                 <a href="/courses/<%= course.slug %>"><div class="course-box">
-                    <div class="course-thumbnaildiv"><img src="/Assets/CourseThumbnails/<%= course.courseThumbnail %>" alt="<%= course.title %>" class="course-thumbnail"></div>
+                    <div class="course-thumbnaildiv"><img src="/courses/course-thumbnail/<%= course.courseThumbnail %>" alt="<%= course.title %>" class="course-thumbnail"></div>
                     <div class="course-title"><%= course.title %></div>
                     <div class="course-detailsflex">
                         <p class="course-tutor">By <%= course.user.name %></p>

@@ -5,7 +5,6 @@ Live on: https://genzknowledge.vercel.app/
 
 A platform of vast knowledge. Offering **courses**, has a **digital library**, and a fruitful **blog**.
 
-\
 
 ### Signup now to
 

@@ -1,12 +1,18 @@
+require('dotenv').config()
 const express = require('express')
 const router = express.Router()
+const mongodb = require('mongodb')
+const multer = require('multer')
+const { GridFsStorage } = require('multer-gridfs-storage')
+
+const DB_URI = process.env.DB_URI;
 
 const { isSignedIn } = require('../middleware/authMiddleware')
-const { uploadBookCover, uploadBook } = require('../middleware/filesUploadMiddleware')
-const { bookCoverBucket, bookBucket } = require('../middleware/bucketsMiddleware')
+const { uploadBookCover } = require('../middleware/filesUploadMiddleware')
+const { bookCoverBucket, writeBookBucket, readBookBucket } = require('../middleware/bucketsMiddleware')
 
 router.use(bookCoverBucket)
-router.use(bookBucket)
+router.use(readBookBucket)
 
 const Book = require('../models/Book')
 const Article = require('../models/Article')
@@ -59,7 +65,7 @@ router.get('/addbook/:slug', async (req, res) => {
 
 // Serve Book, GET request
 router.get('/:filename', (req, res) => {
-    req.bookBucket.openDownloadStreamByName(req.params.filename).pipe(res);
+    req.readBookBucket.openDownloadStreamByName(req.params.filename).pipe(res);
 });
 
 
@@ -79,6 +85,8 @@ router.get('/:filename', (req, res) => {
 //     }]), function(req, res, next){
 // // ...
 // }
+
+var bookSlug
 
 // Add book details, POST request
 router.post('/addBookDetails', isSignedIn, uploadBookCover, async (req, res) => {
@@ -104,6 +112,7 @@ router.post('/addBookDetails', isSignedIn, uploadBookCover, async (req, res) => 
 
     try {
         book = await book.save()
+        bookSlug = book.slug
         res.redirect(`/books/addbook/${book.slug}`)
     } catch (e) {
         res.redirect('/books/add')
@@ -112,20 +121,18 @@ router.post('/addBookDetails', isSignedIn, uploadBookCover, async (req, res) => 
 })
 
 
+const bookStorage = new GridFsStorage({
+    url: DB_URI,
+    file: (req, file) => {
+        return { filename: bookSlug, bucketName: 'bookBucket' };
+    },
+});
+var uploadBook = multer({ storage: bookStorage }).single('book')
+
 // Add book, POST request
 router.put('/addBook/:id', uploadBook, async (req, res) => {
-    let book = await Book.findById(req.params.id)
-
-    var file = req.file
-    var filename = book.slug
-
-    const uploadStream = req.bookBucket.openUploadStream(filename);
-    uploadStream.end(file.buffer);
-
-    book.book = filename
 
     try {
-        book = await book.save()
         res.redirect('/books')
     } catch (e) {
         res.redirect('/books/add')
@@ -138,6 +145,8 @@ router.get('/cover/:filename', (req, res) => {
     req.bookCoverBucket.openDownloadStreamByName(req.params.filename).pipe(res);
 });
 
+// router.post('/addBook', uploadBookCover, async (req, res) => {
+// }, uploadBook)
 
 // router.post('/addBook', uploadBookCover, uploadBook, async (req, res) => {
 //     let book = new Book({

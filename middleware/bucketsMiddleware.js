@@ -1,6 +1,10 @@
 require('dotenv').config()
 const mongodb = require('mongodb')
+const mongoose = require('mongoose')
+const multer = require('multer')
 const { MongoClient } = require('mongodb')
+const Grid = require('gridfs-stream');
+const { GridFsStorage } = require('multer-gridfs-storage')
 
 const DB_URI = process.env.DB_URI;
 
@@ -44,15 +48,24 @@ const bookCoverBucket = (req, res, next) => {
     })
 }
 
-const bookBucket = (req, res, next) => {
+const readBookBucket = (req, res, next) => {
     MongoClient.connect(DB_URI).then(client => {
         const dbName = new URL(DB_URI).pathname.substring(1)
         const db = client.db(dbName);
         var bucket = new mongodb.GridFSBucket(db, { bucketName: 'bookBucket' });
-        req.bookBucket = bucket
+        req.readBookBucket = bucket
         next()
     })
 }
 
 
-module.exports = { userDpBucket, articleThumbnailBucket, courseThumbnailBucket, bookCoverBucket, bookBucket }
+const conn = mongoose.createConnection(DB_URI)
+
+let writeBookBucket;
+conn.once('open', () => {
+    writeBookBucket = Grid(conn.db, mongoose.mongo);
+    writeBookBucket.collection('bookBucket');
+});
+
+
+module.exports = { userDpBucket, articleThumbnailBucket, courseThumbnailBucket, bookCoverBucket, writeBookBucket, readBookBucket }

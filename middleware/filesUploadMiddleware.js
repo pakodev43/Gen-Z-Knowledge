@@ -17,9 +17,5 @@ var uploadCourseThumbnail = multer({ storage: courseThumbnailStorage }).single('
 var bookCoverStorage = multer.memoryStorage()
 var uploadBookCover = multer({ storage: bookCoverStorage }).single('bookCover')
 
-// Books Upload
-var bookStorage = multer.memoryStorage()
-var uploadBook = multer({ storage: bookStorage }).single('book')
 
-
-module.exports = { uploadUserDp, uploadArticleThumbnail, uploadCourseThumbnail, uploadBookCover, uploadBook }
+module.exports = { uploadUserDp, uploadArticleThumbnail, uploadCourseThumbnail, uploadBookCover }

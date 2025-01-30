@@ -65,5 +65,10 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
+  },
+  "overrides": {
+    "multer-gridfs-storage": {
+      "multer": "^1.4.5-lts.1"
+    }
   }
 }

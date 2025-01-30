@@ -10,7 +10,7 @@ A platform of vast knowledge. Offering **courses**, has a **digital library**, a
 
 - Offer Courses
 - Write articles on Blog
-\
+
 \
 Developed with passion by [@pakodev43](https://github.com/pakodev43)
  \
